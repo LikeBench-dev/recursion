@@ -1,0 +1,13 @@
+<div class="timeline-container" *ngIf="!loading; else loadingTemplate">
+    <div class="timeline">
+        <div class="event"
+             *ngFor="let event of data?.events"
+             [ngStyle]="getEventStyle(event)"
+             title="{{ event.type }}: {{ event.dateStart | date: 'dd-MM-yyyy HH:mm:ss' }} - {{ event.dateEnd | date: 'dd-MM-yyyy HH:mm:ss' }}"
+        ></div>
+    </div>
+</div>
+
+<ng-template #loadingTemplate>
+    <div class="loading">Загрузка данных...</div>
+</ng-template>
